@@ -25,9 +25,9 @@ The file fits in memory so we can safely assume that each line fits in memory.
 
 The program defines:
 
-+ a sliding window as a list of chr of size 4
++ a sliding window as an char array of size 4
 
-	+ the sliding window allow to quickly check if a given substring is a valid palindrom; ie
+	+ the sliding window allows to quickly check if a given substring is a valid palindrom; ie
 
 		- it is 4 chars long
 		- last char is equal to first, second is equal to third
@@ -41,9 +41,10 @@ The program defines:
 			- decrement the depth counter for palindroms added to the stack
 
 
-The program iterates over the line indices, effectively sliding the first index of the window along the line.
-A counter tracks the number of open brackets.
+The program iterates over the line indices, effectively sliding the first index of the window along the line.  
+A counter tracks the number of open brackets.  
 The stack gets updated:
+
 + `pop()`: in case a palindrom with depth matching the previous number of open brackets is found. The palindrom is removed from the stack. This means that a palindrom is within brackets somewhere on the line so we can readily declare the line as invalid. 
 + `push()`: in case a palindrom is found at the current position of the sliding window.
 
